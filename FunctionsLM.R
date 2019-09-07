@@ -9,8 +9,11 @@ generateY <- function(X, beta, sigma, seed = 5832652){
   # set seed with given seed value
   set.seed(seed)
   
-  # generate Y
-  Y <- X %*% beta + rnorm(length(beta), mean = 0, sd = sigma)
+  #added number of observations
+  n <- nrow(X)
+  
+  # generate Y - #first argument of rnorm changed
+  Y <- X %*% beta + rnorm(n, mean = 0, sd = sigma)
   
   # Return Y
   return(Y)
